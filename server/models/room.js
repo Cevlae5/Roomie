@@ -11,9 +11,7 @@ const RoomSchema = new Schema ({
     tv_cable : { type:Boolean, required:true },
     smart_tv : { type:Boolean, required:true },
     desktop : { type:Boolean, required:true },
-
-    id_house : { type:String, required:true },
-
+    id_house : { type:String, required:true }
 })
 
 module.exports = mongoose.model('Room', UserSchema);
