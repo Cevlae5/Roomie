@@ -14,7 +14,7 @@ app.use(cors('*'));
 
 // Routes
 app.use('/api/user', require('./routes/user.routes'));
-
+// hola
 /*
 app.use('/api/pub', require('./routes/pub.routes'));
 
