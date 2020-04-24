@@ -14,7 +14,7 @@ const MsgSchema = new Schema ({
     img: { type:Boolean, required: true },
     status: { type:Number, required:true },
     visible: {type:Boolean, required: true }
-}
-)
+    
+})
 
 module.exports = mongoose.model('Msg', MsgSchema);
