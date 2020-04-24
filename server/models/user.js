@@ -14,7 +14,6 @@ const UserSchema = new Schema ({
     img: { type:Boolean, required:true },
     os: { type: String, required: true },
     update: { type: String, required: true }
-
 })
 
 module.exports = mongoose.model('User', UserSchema);

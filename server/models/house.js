@@ -7,11 +7,8 @@ const HouseSchema = new Schema ({
     commune : { type:String, required:true },
     price : { type:Number, required:true },
     room : { type:Number, required:true },
-    bathroom : { type:Number, required:true },
-
-
+    bathroom_qtity : { type:Number, required:true },
     id_user : { type:String, required:true },
-
 })
 
 module.exports = mongoose.model('House', UserSchema);
