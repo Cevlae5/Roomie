@@ -9,6 +9,7 @@ router.get('/username/:user', userCtrl.getByUsername);
 router.get('/matches/:user/:gender/:gender_lookfor', userCtrl.getByGender);
 router.get('/password/:email/:birth', userCtrl.getPassword);
 router.get('/admins', userCtrl.getAdmins);
+router.get('/noadmins', userCtrl.getNoAdmins);
 
 router.post('/', userCtrl.create);
 router.post('/getUsersExcept', userCtrl.getAllExceptArray);

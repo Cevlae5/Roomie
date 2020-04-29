@@ -37,6 +37,18 @@ userCtrl.getAdmins = async (req,res) => {
     }  
 }
 
+userCtrl.getNoAdmins = async (req,res) => {
+    const users = await User.find({ $and: [ { os: { $ne: "" } }, { os: { $exists: true } }, { permission: "1" } ] });
+    if(users != null)
+    {
+         res.json({ result: "1", users });
+    }
+    else
+    {
+        res.json({ result: "0", msg: "users not found" });
+    }  
+}
+
 userCtrl.get = async (req,res) => {
     if (req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
         const user = await User.findById(req.params.id);
