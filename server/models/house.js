@@ -3,8 +3,8 @@ const { Schema } = mongoose;
 
 const HouseSchema = new Schema ({
     region:         { type:String, required:true },
-    commune:        { type:String, required:true },
-    bath_qtity:     { type:Number, required:true },
+    comuna:        { type:String, required:true },
+    baths:     { type:Number, required:true },
     id_user :       { type:String, required:true }
 })
 
