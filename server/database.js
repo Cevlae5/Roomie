@@ -4,5 +4,5 @@ const con = 'mongodb://localhost/mongod'+dbName;
 mongoose.connect(con, {useNewUrlParser: true})
 .then(db => console.log('Conectado a MongoDB'))
 .catch(err => console.log('Error de conexión con MongoDB'));
-
+mongoose.set('useFindAndModify', false);
 module.exports = mongoose;

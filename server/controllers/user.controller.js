@@ -106,9 +106,8 @@ userCtrl.getPassword = async (req,res) => {
 userCtrl.create = async (req,res) => {
     const user = new User(req.body);
     console.log(user);
-    const verify_user = await User.findOne({ user: user.user })
     const verify_email = await User.findOne({ email: user.email })
-    if(verify_user == null && verify_email == null)
+    if(verify_email == null)
     {
         await user.save(function(err,resultado){
           if(err) {
@@ -139,32 +138,26 @@ userCtrl.getAllExceptArray = async (req,res) => {
 
 userCtrl.update = async (req,res) => {
     const selectedUser = await User.findByIdAndUpdate(req.params.id, { $set: req.body},{ new:true })
-    .then(
-        res.json({ result: "1", msg: "ok" })
-    )
-    .catch(       
-        res.json({ result: "0", msg: "error" })
-    );
+    .exec(function(err, doc2) {
+        if (err) res.json({ result: "0", msg: "error" });
+        else     res.json({ result: "1", msg: "ok" });  
+    });
 }
 
 userCtrl.updatePermission = async (req,res) => {  
     const selectedUser = await User.findByIdAndUpdate(req.params.id, { $set: req.body })
-    .then(
-        res.json({ result: "1", msg: "ok" })
-    )
-    .catch(       
-        res.json({ result: "0", msg: "error" })
-    );
+    .exec(function(err, doc2) {
+        if (err) res.json({ result: "0", msg: "error" });
+        else     res.json({ result: "1", msg: "ok" });  
+    });
 }
 
 userCtrl.delete = async (req,res) => {
     const selectedUser = await User.findByIdAndDelete(req.params.id)
-    .then(
-        res.json({ result: "1",  msg: "ok" })
-    )
-    .catch(       
-        res.json({ result: "0", msg: "error" })
-    );
+    .exec(function(err, doc2) {
+        if (err) res.json({ result: "0", msg: "error" });
+        else     res.json({ result: "1", msg: "ok" });  
+    });
 }
 
 userCtrl.getByGender = async (req,res) => {
